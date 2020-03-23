@@ -1,6 +1,7 @@
 const Pagos = require("../models/pagos");
 const Usuario = require("../models/usuario");
-const stripe = require("stripe")("sk_test_HaD5Sb4WhDv1P10suN9T7rPU0078Ip2rZV");
+require('dotenv').config({path: 'variables.env'});
+const stripe = require("stripe")(process.env.API_PUBLIC_KEY_STRIPE);
 const {v4 : uuidv4} = require("uuid");
 exports.insertarPago = async (req, res) => {
     console.log(req.body);
